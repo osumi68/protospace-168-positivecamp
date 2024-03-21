@@ -17,7 +17,7 @@ def create
   if @prototype.save
     redirect_to root_path
   else
-    render :new, status: :unprocessable_entitiy
+    render :new, status: :unprocessable_entity
   end
 
 end
@@ -26,7 +26,7 @@ end
 private
 
   def prototype_params
-    params.require(:prototype).permit(:title, :image, :catch_copy, :concept ).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:title, :image, :catch_copy, :concept )
   end
 
 
