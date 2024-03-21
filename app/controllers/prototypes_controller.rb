@@ -6,6 +6,8 @@ end
 
 def new
 
+@prototype = Prototype.new
+
 end
 
 
