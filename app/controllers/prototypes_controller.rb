@@ -45,7 +45,7 @@ end
 private
 
   def prototype_params
-    params.require(:prototype).permit(:title, :image, :catch_copy, :concept )
+    params.require(:prototype).permit(:title, :image, :catch_copy, :concept ).merge(user_id: current_user.id)
   end
 
 
