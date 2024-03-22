@@ -23,7 +23,7 @@ def create
 end
 
 def show
-@prototype = Prototype.find(params[:id])
+  @prototype = Prototype.find(params[:id])
 
 end
 
@@ -39,6 +39,13 @@ def update
   else
    render :edit, status: :unprocessable_entity
   end
+end
+
+def destroy
+  @prototype = Prototype.find(params[:id])
+  @prototype.destroy
+  redirect_to '/'
+
 end
 
 
