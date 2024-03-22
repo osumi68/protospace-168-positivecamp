@@ -23,7 +23,7 @@ def create
 end
 
 def show
-@prototype = Prototype.find(params[:id])
+  @prototype = Prototype.find(params[:id])
 
 end
 
@@ -41,11 +41,18 @@ def update
   end
 end
 
+def destroy
+  @prototype = Prototype.find(params[:id])
+  @prototype.destroy
+  redirect_to '/'
+
+end
+
 
 private
 
   def prototype_params
-    params.require(:prototype).permit(:title, :image, :catch_copy, :concept )
+    params.require(:prototype).permit(:title, :image, :catch_copy, :concept ).merge(user_id: current_user.id)
   end
 
 
