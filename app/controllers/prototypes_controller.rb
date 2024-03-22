@@ -1,20 +1,17 @@
 class PrototypesController < ApplicationController
 
 def index
-
-@prototypes = Prototype.all
+  @prototypes = Prototype.all
 
 end
 
 def new
-
-@prototype = Prototype.new
+  @prototype = Prototype.new
 
 end
 
 
 def create
-
   @prototype = Prototype.create(prototype_params)
   if @prototype.save
      redirect_to root_path
@@ -28,6 +25,13 @@ def show
 @prototype = Prototype.find(params[:id])
 
 end
+
+def edit
+  @prototype = Prototype.find(params[:id])
+
+end
+
+
 
 
 
