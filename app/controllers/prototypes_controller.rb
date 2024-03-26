@@ -1,4 +1,6 @@
 class PrototypesController < ApplicationController
+  # 新規作成,編集,削除はログインしてる人のみ
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
 
 
 def index
@@ -32,7 +34,10 @@ end
 
 def edit
   @prototype = Prototype.find(params[:id])
-
+  # 投稿者じゃなかったらトップページに遷移する
+  if current_user.id != @prototype.user_id
+    redirect_to action: :index
+  end
 end
 
 def update
